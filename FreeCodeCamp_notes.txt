@@ -1,0 +1,604 @@
+tr[class="total"] 和 tr.total 之间的主要区别在于，前一个将选择类只是 total 的 tr 元素。 第二个将选择类包含 total 的 tr 元素。
+
+选择类包含 total 的 tr 元素中的所有 td 元素：
+tr.total td {
+  text-align: right;
+  padding: 0 0.25rem;
+}
+
+span[class] 选择所有具有class 属性的span 元素。
+
+隐藏包含sr-only类的span 元素。
+span[class~="sr-only"] {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  -webkit-clip-path: inset(50%) !important;
+  height: 1px !important;
+  width: 1px !important;
+  position: absolute !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  padding: 0 !important;
+  margin: -1px !important;
+}
+
+h1 下具有flex类的元素下的第一个span元素：
+h1 .flex span:first-of-type {
+  font-size: 0.7em;
+}
+
+h1 下具有flex类的元素下的最后一个span元素：
+h1 .flex span:last-of-type {
+  font-size: 1.2em;
+}
+
+
+:nth-of-type() 伪选择器用于根据它们在相同类型的同级中的顺序来定位特定元素。 使用此伪选择器来定位 total 表行中的第三个 td 元素。 给它一个 0.5rem 的右侧填充。
+tr.total td:nth-of-type(3) {
+  padding-right: 0.5rem;
+}
+
+为你的 tr.total 元素提供鼠标悬停效果，将背景更改为 #99c9ff。
+tr.total:hover {
+  background-color: #99c9ff;
+}
+
+选择 class 为 data 的 tr 元素。 给他们一个 linear-gradient(to bottom, #dfdfe2 1.845rem, white 1.845rem) 的背景图片。
+tr.data {
+  background-image: linear-gradient(to bottom, #dfdfe2 1.845rem, white 1.845rem);
+  
+}
+
+
+
+创建一个 tr.data th .description 选择器以定位 class 为 description 的元素，这些元素位于你的 .data 表行中的 th 元素。 给它们一个块显示，使文本斜体并具有正常的粗细，并将它们定位为 padding 设置为 1rem 0 0.75rem 和右边距为 -13.5rem。
+tr.data th .description {
+  display: block;
+  font-style: italic;
+  font-weight: normal;
+  padding: 1rem 0 0.75rem;
+  margin-right: -13.5rem;
+}
+
+创建一个选择器以定位 tr.data 元素中的 td 元素。 将文本垂直对齐顶部，将文本水平对齐右侧，并将 padding 填充设置为 0.3rem 0.25rem 0。
+tr.data td {
+  vertical-align: top ;
+  text-align: right;
+  padding: 0.3rem 0.25rem 0;
+}
+
+
+
+
+
+z-index 属性用于为你的 HTML 元素创建“层”。 如果你熟悉图像编辑工具，你可能以前使用过图层。 这是一个类似的概念。
+z-index 值较高的元素会显示在 z-index 值较低的元素之上。 这可以与上一课中的定位相结合，创造出独特的效果。
+
+
+
+
+--------------------------------------------
+将 repeating-linear-gradient 添加到 .fb1c 中，角度为 90deg，从 0% 到 10% 处为 --building-color4，从 10% 到 15% 处为 transparent。
+.fb1c { 
+  background: repeating-linear-gradient(90deg, var(--building-color4), var(--building-color4) 10%, transparent 10%, transparent 15%);
+}
+
+
+你可以通过使用逗号（,）将多个渐变添加到一个元素，如下所示：
+
+gradient1(
+  colors
+),
+gradient2(
+  colors
+);
+
+将 repeating-linear-gradient 添加到 .fb1c 已有的渐变下方，从 0% 到 10% 处为 --building-color4，从 10% 到 90% 处为 --window-color4。 这将在你之前添加的渐变后面。
+.fb1c { 
+  background: repeating-linear-gradient(90deg, var(--building-color4), var(--building-color4) 10%, transparent 10%, transparent 15%),
+              repeating-linear-gradient(     
+      var(--building-color4),
+      var(--building-color4) 10%,
+      var(--window-color4) 10%,
+      var(--window-color4) 90%
+      );
+}
+
+----------------------------------------------三角形
+你将在顶部使用更多边框技巧。 将值为 7vh solid var(--building-color4) 的 border-bottom 添加到 .fb1a。 这将在底部放置一个高度为 7vh 的边框。 但是由于元素的大小为零，它只显示为从所有元素上的 1px 边框开始的 2px 宽的线。
+.fb1a {
+  border-bottom: 7vh solid var(--building-color4);
+  }
+当你增加左右边框的大小时，底部的边框将扩展为左右边框宽度组合的宽度。 添加 2vw solid transparent 作为 .fb1a 的 border-left 和 border-right 属性的值。 它们将是不可见的，但它会使底部边框的宽为 4vw。
+.fb1a {
+  border-bottom: 7vh solid var(--building-color4);
+  border-left: 2vw solid transparent;
+  border-right: 2vw solid transparent;
+}
+
+----------------------------------------------梯形
+对于 .fb2a，添加 border-bottom 为 10vh solid var(--building-color3)，以及 border-left 和 border-right 为 1vw solid transparent。 这一次边框技巧将创建一个梯形形状。
+.fb2a {
+  width: 100%;
+  border-bottom: 10vh solid var(--building-color3);
+  border-left: 1vw solid transparent;
+  border-right: 1vw solid transparent;
+}
+
+---------------------------------------------
+Referer HTTP 标头包含有关用户可能从其访问的页面的地址或 URL 的信息。 例如，此信息可用于分析以跟踪有多少用户从你的页面访问 freecodecamp.org。 将 rel 属性设置为 noreferrer，会从 HTTP 请求中省略此信息。 将你的 a 元素的 rel 属性设置为 noreferrer。
+ <a href="https://freecodecamp.org" target="_blank" rel="noreferrer">freeCodeCamp</a>
+ 
+ 
+ 
+
+创建一个 html 选择器并将其 font-size 属性设置为 62.5%。 这会将网页的默认字体大小设置为 10px（浏览器默认为 16px）。
+
+这将使你以后更容易使用 rem 单位，因为 2rem 将是 20px。
+
+此外，将 box-sizing 属性设置为 border-box。
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+
+---------------------------------------------------------------------CSS grid
+创建一个 img 选择器，将其 width 属性设置为 100%，并为其添加一个 object-fit 属性设置为 cover。
+object-fit 属性告诉浏览器如何在其容器中定位元素。 在这种情况下，cover 会将图像设置为填充容器，并根据需要进行裁剪以避免更改宽高比。
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+-------------------
+
+::first-letter 伪选择器允许你定位元素文本内容中的第一个字母。
+
+创建一个 .first-paragraph::first-letter 选择器，并将 font-size 属性设置为 6rem。 同时给它一个 color 属性，设置为 orangered，以使其突出显示。
+.first-paragraph::first-letter {
+  font-size: 6rem;
+  color: orangered;
+}
+---------------------------------------------------
+
+创建一个 .lists 选择器，并将 list-style-type 属性设置为 none。 这将清除列表项上的标记。
+.lists {
+  list-style-type: none;
+}
+----------------------------------------------------animation
+
+
+@keyframes at-rule 用于定义 CSS 动画的流程。 在 @keyframes 规则中，你可以为动画序列中的特定点创建选择器，例如 0% 或 25%，或者使用 from 和 to 来定义序列的开始和结束。
+
+需要为 @keyframes 规则分配一个名称，你可以在其他规则中使用该名称来引用它们。 例如，@keyframes freeCodeCamp { } 规则将被命名为 freeCodeCamp。
+
+是时候开始制作动画了。 创建一个名为 wheel 的 @keyframes 规则。
+@keyframes wheel {
+
+}
+现在你需要定义你的动画如何开始。 要做到这一点，在你的 @keyframes wheel 规则中创建一个 0% 的规则。 你在这个嵌套选择器中设置的属性将在你的动画开始时生效。
+@keyframes wheel {
+  0% {
+
+  }
+}
+
+将 .cabin 规则的 animation 属性设置为 cabins 10s linear infinite。 这将按顺序设置 animation-name、animation-duration、animation-timing-function 和 animation-iteration-count 属性。
+.cabin {
+  background-color: red;
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  border: 2px solid;
+  transform-origin: 50% 0%;
+  animation: cabins 10s linear infinite;
+}
+
+更改 .penguin 元素的 transition 行为， 设置动画周期的时长为 1s，关键帧的缓动函数为 ease-in-out，动画延迟为 0ms。
+.penguin {  
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0ms;
+}
+---------------------------------------------------------------
+删除横向和纵向滚动栏，只使用一个属性。
+overflow: hidden;
+
+
+选择 .penguin 所有的后代元素，将其 position 设置为 absolute。
+.penguin * {
+  position: absolute;
+}
+
+--------------------------------------------
+选择 .penguin 元素的活动（active）状态，在水平垂直两个维度增加尺寸 50%。
+.penguin:active {
+  transform: scale(1.5);
+}
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------javascript
+JavaScript 有七种原始（不可变）数据类型： Boolean，Null，Undefined，Number，String，Symbol （new with ES6），BigInt （new with ES2020）和一种可变数据类型：Object。 注意：在 JavaScript 中，数组在本质上是一种对象。
+
+
+
+创建一个函数 randomRange，参数为 myMin 和 myMax，返回一个在 myMin（包括 myMin）和 myMax（包括 myMax）之间的随机整数。
+function randomRange(myMin, myMax) {
+  return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;  
+}
+
+----------------------------------------------------------------------------------
+ECMAScript（ES）是 JavaScript 的标准。因为所有主流浏览器都遵循此规范，所以 ECMAScript 和 JavaScript 是可以互换的。
+
+截至目前你所学到的 JavaScript 大多是在 2009 年定稿的 ES5（ECMAScript5）。你仍然可以使用 ES5 编写程序。JavaScript 在不断迭代，每年都会发布新功能。
+
+2015 年发布的 ES6 为该语言添加了许多强大的新功能。在本课程中，你将学习这些新特性，包括箭头函数、解构、类、promise 和模块。
+
+-------
+const 声明并不会真的保护数据不被改变。 为了确保数据不被改变，JavaScript 提供了一个函数 Object.freeze(objname)。
+
+任何更改对象的尝试都将被拒绝，如果脚本在严格模式下运行，将抛出错误。
+----------
+
+ES6 推出了用于函数参数的 rest 操作符帮助我们创建更加灵活的函数。 rest 操作符可以用于创建有一个变量来接受多个参数的函数。 这些参数被储存在一个可以在函数内部读取的数组中。
+
+请看以下代码：
+
+function howMany(...args) {
+  return "You have passed " + args.length + " arguments.";
+}
+console.log(howMany(0, 1, 2));
+console.log(howMany("string", null, [1, 2, 3], { }));
+
+控制台将显示字符串 You have passed 3 arguments. 和 You have passed 4 arguments.。
+
+使用 rest 参数，就不需要查看 args 数组，并且允许我们在参数数组上使用 map()、filter() 和 reduce()。
+-----------------------------------------
+下面的 ES5 代码使用了 apply() 来计算数组的最大值：
+
+var arr = [6, 89, 3, 45];
+var maximus = Math.max.apply(null, arr);
+
+maximus 的值为 89。
+
+我们必须使用 Math.max.apply(null, arr)，因为 Math.max(arr) 返回 NaN。 Math.max() 函数中需要传入的是一系列由逗号分隔的参数，而不是一个数组。 展开操作符可以提升代码的可读性，使代码易于维护。
+
+const arr = [6, 89, 3, 45];
+const maximus = Math.max(...arr);
+
+maximus 的值应该是 89。
+
+...arr 返回一个解压的数组。 也就是说，它展开数组。 然而，展开操作符只能够在函数的参数中或者数组中使用。 下面的代码将会报错：
+
+const spreaded = ...arr;
+
+使用展开操作符将 arr1 中的内容都复制到 arr2 中去。
+const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr2;
+arr2 = [...arr1];
+------------------------------------------------使用解构赋值来获取对象的值
+
+解构赋值是 ES6 引入的新语法，用来从数组和对象中提取值，并优雅地对变量进行赋值。
+
+有如下 ES5 代码：
+
+const user = { name: 'John Doe', age: 34 };
+
+const name = user.name;
+const age = user.age;
+
+name 的值应该是字符串 John Doe， age 的值应该是数字 34。
+
+下面是使用 ES6 解构赋值语句，实现相同效果：
+
+const { name, age } = user;
+
+同样，name 的值应该是字符串 John Doe， age 的值应该是数字 34。
+
+在这里，自动创建 name 和 age 变量，并将 user 对象相应属性的值赋值给它们。 这个方法简洁多了。
+
+你可以从对象中提取尽可能多或很少的值。
+-------------------------------------------用 export default 创建一个默认导出
+在 export 的课程中，你学习了命名导出语法， 这可以在其他文件中引用一些函数或者变量。
+
+还需要了解另外一种被称为默认导出的 export 的语法。 在文件中只有一个值需要导出的时候，通常会使用这种语法。 它也常常用于给文件或者模块创建返回值。
+
+下面是使用 export default 的例子：
+
+export default function add(x, y) {
+  return x + y;
+}
+
+export default function(x, y) {
+  return x + y;
+}
+
+第一个是命名函数，第二个是匿名函数。
+
+export default 用于为模块或文件声明一个返回值，在每个文件或者模块中应当只默认导出一个值。 此外，你不能将 export default 与 var、let 或 const 同时使用。
+------------------------------------------导入一个默认的导出
+在上一个挑战里，学习了 export default 的用法。 还需要一种 import 的语法来导入默认的导出。 在下面的例子里，add 是 math_functions.js 文件的默认导出。 以下是如何导入它：
+
+import add from "./math_functions.js";
+
+这个语法有一处特别的地方， 被导入的 add 值没有被花括号（{}）所包围。 add 只是一个变量的名字，对应 math_functions.js 文件的任何默认导出值。 在导入默认导出时，可以使用任何名字。
+
+-----------------------------------------------创建一个 JavaScript Promise
+Promise 是异步编程的一种解决方案 - 它在未来的某时会生成一个值。 任务完成，分执行成功和执行失败两种情况。 Promise 是构造器函数，需要通过 new 关键字来创建。 构造器参数是一个函数，该函数有两个参数 - resolve 和 reject。 通过它们来判断 promise 的执行结果。 用法如下：
+
+const myPromise = new Promise((resolve, reject) => {
+
+});
+-----------
+Promise 有三个状态：pending、fulfilled 和 rejected。 上一个挑战里创建的 promise 一直阻塞在 pending 状态里，因为没有调用 promise 的完成方法。 Promise 提供的 resolve 和 reject 参数就是用来结束 promise 的。 Promise 成功时调用 resolve，promise 执行失败时调用 reject， 如下文所述，这些方法需要有一个参数。
+
+const myPromise = new Promise((resolve, reject) => {
+  if(condition here) {
+    resolve("Promise was fulfilled");
+  } else {
+    reject("Promise was rejected");
+  }
+});
+
+上面的示例使用字符串作为这些函数的参数，但参数实际上可以是任何格式。 通常，它可能是一个包含数据的对象，你可以将它放在网站或其他地方。
+----------用 then 处理 Promise 完成的情况
+
+当程序需要花费未知的时间才能完成时（比如一些异步操作），一般是服务器请求，promise 很有用。 服务器请求会花费一些时间，当结束时，需要根据服务器的响应执行一些操作。 这可以用 then 方法来实现， 当 promise 完成 resolve 时会触发 then 方法。 例子如下：
+
+myPromise.then(result => {
+console.log(result);
+
+});
+
+result 即传入 resolve 方法的参数。
+----------使用 catch 处理 Promise 失败的情况
+
+当 promise 失败时会调用 catch 方法。 当 promise 的 reject 方法执行时会直接调用。 用法如下：
+
+myPromise.catch(error => {
+console.log(error);
+
+});
+
+error 是传入 reject 方法的参数。
+
+-----------------------------------------------------------正则表达式---匹配单个未指定的字符
+
+到目前为止，已经创建了一个想要匹配的字符集合，但也可以创建一个不想匹配的字符集合。 这些类型的字符集称为否定字符集（ negated character sets）。
+
+要创建否定字符集，需要在开始括号后面和不想匹配的字符前面放置脱字符（即^）。
+
+例如，/[^aeiou]/gi 匹配所有非元音字符。 注意，字符 .、!、[、@、/ 和空白字符等也会被匹配，该否定字符集仅排除元音字符。
+
+创建一个匹配所有非数字或元音字符的正则表达式。 请记得在正则表达式中包含恰当的标志。
+let quoteSample = "3 blind mice.";
+let myRegex = /[^0-9aeiou]/gi; // 修改这一行
+let result = quoteSample.match(myRegex); // 修改这一行
+console.log(result);
+
+----------匹配出现一次或多次的字符
+
+有时，需要匹配出现一次或者连续多次的的字符（或字符组）。 这意味着它至少出现一次，并且可能重复出现。
+
+可以使用 + 符号来检查情况是否如此。 记住，字符或匹配模式必须一个接一个地连续出现。 这就是说，字符必须一个接一个地重复。
+
+例如，/a+/g 会在 abc 中匹配到一个匹配项，并且返回 ["a"]。 因为 + 的存在，它也会在 aabc 中匹配到一个匹配项，然后返回 ["aa"]。
+
+如果它是检查字符串 abab，它将匹配到两个匹配项并且返回["a", "a"]，因为a字符不连续，在它们之间有一个b字符。 最后，因为在字符串 bcd 中没有 a，因此找不到匹配项。
+
+----------匹配出现零次或多次的字符
+
+上一次的挑战中使用了加号 + 来查找出现一次或多次的字符。 还有一个选项可以匹配出现零次或多次的字符。
+
+执行该操作的字符叫做星号，即*。
+
+let soccerWord = "gooooooooal!";
+let gPhrase = "gut feeling";
+let oPhrase = "over the moon";
+let goRegex = /go*/;
+soccerWord.match(goRegex);
+gPhrase.match(goRegex);
+oPhrase.match(goRegex);
+
+按顺序排列，三次 match 调用将返回值 ["goooooooo"]，["g"] 和 null。
+----------用惰性匹配来查找字符
+
+在正则表达式中，贪婪（greedy）匹配会匹配到符合正则表达式匹配模式的字符串的最长可能部分，并将其作为匹配项返回。 另一种方案称为懒惰（lazy）匹配，它会匹配到满足正则表达式的字符串的最小可能部分。
+
+可以将正则表达式 /t[a-z]*i/ 应用于字符串 "titanic"。 这个正则表达式是一个以 t 开始，以 i 结束，并且中间有一些字母的匹配模式。
+
+正则表达式默认是贪婪匹配，因此匹配返回为 ["titani"]。 它会匹配到适合该匹配模式的最大子字符串。
+
+但是，你可以使用 ? 字符来将其变成懒惰匹配。 调整后的正则表达式 /t[a-z]*?i/ 匹配字符串 "titanic" 返回 ["ti"]。
+
+**注意：**应该避免使用正则表达式解析 HTML，但是可以用正则表达式匹配 HTML 字符串。
+
+修复正则表达式 /<.*>/，让它返回 HTML 标签 <h1>，而不是文本 "<h1>Winter is coming</h1>"。 请记得在正则表达式中使用通配符 . 来匹配任意字符。
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<.*?>/; // 修改这一行
+let result = text.match(myRegex);
+console.log(result);
+----------匹配字符串的开头
+
+回顾一下之前的挑战，正则表达式可以用于查找多项匹配。 还可以查询字符串中符合指定匹配模式的字符。
+
+在之前的挑战中，使用字符集中前插入符号（^）来创建一个否定字符集，形如 [^thingsThatWillNotBeMatched]。 除了在字符集中使用之外，插入符号（^）用于匹配文本是否在字符串的开始位置
+
+let firstString = "Ricky is first and can be found.";
+let firstRegex = /^Ricky/;
+firstRegex.test(firstString);
+let notFirst = "You can't find Ricky now.";
+firstRegex.test(notFirst);
+
+第一次 test 调用将返回 true，而第二次调用将返回 false。
+----------匹配所有的字母和数字
+
+使用元字符，可以使用 [a-z] 搜寻字母表中的所有字母。 这种元字符是很常见的，它有一个缩写，但这个缩写也包含额外的字符。
+
+JavaScript 中与字母表匹配的最接近的元字符是\w。 这个缩写等同于[A-Za-z0-9_]。 此字符类匹配大写字母和小写字母以及数字。 注意，这个字符类也包含下划线字符 (_)。
+
+let longHand = /[A-Za-z0-9_]+/;
+let shortHand = /\w+/;
+let numbers = "42";
+let varNames = "important_var";
+longHand.test(numbers);
+shortHand.test(numbers);
+longHand.test(varNames);
+shortHand.test(varNames);
+
+上面的 test 都会返回 true。
+
+这些元字符缩写也被称为短语元字符 shorthand character classes。
+
+使用元字符 \w 来计算所有引号中字母和数字字符的数量。
+let quoteSample = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /\w/g; // 修改这一行
+let result = quoteSample.match(alphabetRegexV2).length;
+console.log(result+":"+quoteSample.match(alphabetRegexV2))
+----------匹配除了字母和数字的所有符号
+已经了解到可以使用缩写 \w 来匹配字母和数字 [A-Za-z0-9_]。 不过，有可能想要搜寻的匹配模式是非字母数字字符。
+
+可以使用 \W 搜寻和 \w 相反的匹配模式。 注意，相反匹配模式使用大写字母。 此缩写与 [^A-Za-z0-9_] 是一样的。
+
+let shortHand = /\W/;
+let numbers = "42%";
+let sentence = "Coding!";
+numbers.match(shortHand);
+sentence.match(shortHand);
+
+第一次 match 调用将返回值 ["%"] 而第二次调用将返回 ["!"]。
+----------匹配所有非数字
+上一项挑战中展示了如何使用带有小写 d 的缩写 \d 来搜寻数字。 也可以使用类似的缩写来搜寻非数字，该缩写使用大写的 D。
+
+查找非数字字符的缩写是 \D。 这等同于字符串 [^0-9]，它查找不是 0 - 9 之间数字的单个字符。
+
+----------指定匹配的上限和下限
+
+回想一下，使用加号 + 查找一个或多个字符，使用星号 * 查找零个或多个字符。 这些都很方便，但有时需要匹配一定范围的匹配模式。
+
+可以使用数量说明符（quantity specifiers）指定匹配模式的上下限。 数量说明符与花括号（{ 和 }）一起使用。 可以在花括号之间放两个数字，这两个数字代表匹配模式的上限和下限。
+
+例如，要匹配出现 3 到 5 次字母 a 的在字符串 ah，正则表达式应为/a{3,5}h/。
+
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/;
+multipleA.test(A4);
+multipleA.test(A2);
+
+第一次 test 调用将返回 true，而第二次调用将返回 false。
+----------只指定匹配的下限
+
+可以使用带有花括号的数量说明符来指定匹配模式的上下限。 但有时候只想指定匹配模式的下限而不需要指定上限。
+
+为此，在第一个数字后面跟一个逗号即可。
+
+例如，要匹配至少出现 3 次字母 a 的字符串 hah，正则表达式应该是 /ha{3,}h/。
+
+let A4 = "haaaah";
+let A2 = "haah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleA = /ha{3,}h/;
+multipleA.test(A4);
+multipleA.test(A2);
+multipleA.test(A100);
+
+按顺序排列，三次 test 调用将返回值 true，false 和 true。
+
+----------指定匹配的确切数量
+
+可以使用带有花括号的数量说明符来指定匹配模式的上下限。 但有时只需要特定数量的匹配。
+
+要指定一定数量的匹配模式，只需在大括号之间放置一个数字。
+
+例如，要只匹配字母 a 出现 3 次的单词hah，正则表达式应为/ha{3}h/。
+
+let A4 = "haaaah";
+let A3 = "haaah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleHA = /ha{3}h/;
+multipleHA.test(A4);
+multipleHA.test(A3);
+multipleHA.test(A100);
+
+按顺序排列，三次 test 调用将返回值 false，true 和 false。
+----------检查全部或无
+
+有时，想要搜寻的匹配模式可能有不确定是否存在的部分。 尽管如此，还是想检查它们。
+
+为此，可以使用问号 ? 指定可能存在的元素。 这将检查前面的零个或一个元素。 可以将此符号视为前面的元素是可选的。
+
+例如，美式英语和英式英语略有不同，可以使用问号来匹配两种拼写。
+
+let american = "color";
+let british = "colour";
+let rainbowRegex= /colou?r/;
+rainbowRegex.test(american);
+rainbowRegex.test(british);
+
+上面的 test 都会返回 true。
+
+----------正向先行断言和负向先行断言
+
+先行断言 （Lookaheads）是告诉 JavaScript 在字符串中向前查找的匹配模式。 当想要在同一个字符串上搜寻多个匹配模式时，这可能非常有用。
+
+有两种先行断言：正向先行断言（positive lookahead）和负向先行断言（negative lookahead）。
+
+正向先行断言会查看并确保搜索匹配模式中的元素存在，但实际上并不匹配。 正向先行断言的用法是 (?=...)，其中 ... 就是需要存在但不会被匹配的部分。
+
+另一方面，负向先行断言会查看并确保搜索匹配模式中的元素不存在。 负向先行断言的用法是 (?!...)，其中 ... 是希望不存在的匹配模式。 如果负向先行断言部分不存在，将返回匹配模式的其余部分。
+
+尽管先行断言有点儿令人困惑，但是这些示例会有所帮助。
+
+let quit = "qu";
+let noquit = "qt";
+let quRegex= /q(?=u)/;
+let qRegex = /q(?!u)/;
+quit.match(quRegex);
+noquit.match(qRegex);
+
+这两次 match 调用都将返回 ["q"]。
+
+先行断言的更实际用途是检查一个字符串中的两个或更多匹配模式。 这里有一个简单的密码检查器，密码规则是 3 到 6 个字符且至少包含一个数字：
+
+let password = "abc123";
+let checkPass = /(?=\w{3,6})(?=\D*\d)/;
+checkPass.test(password);
+
+在正则表达式 pwRegex 中使用先行断言以匹配大于 5 个字符且有两个连续数字的密码。
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{6,})(?=\D*\d{2})/; // 修改这一行
+let result = pwRegex.test(sampleWord);
+-----------------------------------------------------------检查对象是否具有某个属性
+
+我们已经学习了如何添加、修改和移除对象中的属性。 但如果我们想知道一个对象中是否包含某个属性呢？ JavaScript 为我们提供了两种不同的方式来实现这个功能： 一个是通过 hasOwnProperty() 方法，另一个是使用 in 关键字。 假如我们有一个 users 对象，为检查它是否含有 Alan 属性，可以这样写：
+
+users.hasOwnProperty('Alan');
+'Alan' in users;
+
+这两者结果都应该为 true。
+-----------------------------------------------------------了解立即调用函数表达（IIFE）
+
+JavaScript 中的一个常见模式就是，函数在声明后立刻执行：
+
+(function () {
+  console.log("Chirp, chirp!");
+})();
+
+这是一个匿名函数表达式，立即执行并输出 Chirp, chirp!。
+
+请注意，函数没有名称，也不存储在变量中。 函数表达式末尾的两个括号（）会让它被立即执行或调用。 这种模式被叫做立即调用函数表达式（immediately invoked function expression) 或者IIFE。
+
+重写函数 makeNest，并删除它的调用，取而代之是一个匿名的立即调用函数表达式（IIFE）。
+
+----------
+-----------------------------------------------------------
+----------
+
+
+
+
+

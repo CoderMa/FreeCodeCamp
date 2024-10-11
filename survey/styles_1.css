@@ -1,0 +1,102 @@
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background-color: #1b1b32;
+  color: #f5f6f7;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+h1, p {
+  margin: 1em auto;
+  text-align: center;
+}
+
+.header p {
+  font-size: 14px;
+}
+
+#description {
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+form {
+  width: 60vw;
+  max-width: 600px;
+  min-width: 490px;
+  margin: 0 auto;
+  padding: 0 2em 2em 2em;
+}
+
+fieldset {
+  border: none;
+  padding: 1rem 0;
+  #border-bottom: 3px solid #3b3b4f;
+}
+
+
+
+input,
+textarea,
+select {
+  margin: 5px 0 0 0;
+  width: 100%;
+  min-height: 2em;
+}
+
+.info input {
+  margin-bottom:20px;
+}
+
+.recommend input {
+  width: unset;  
+}
+
+.advise input {
+  width: unset;  
+}
+
+.recommend p {  
+  text-align: unset;
+}
+
+.favorite-feature  p {  
+  text-align: unset;
+}
+
+.advise p{
+  text-align: unset;
+}
+
+.comments p{
+  text-align: unset;
+}
+
+.inline {
+  width: unset;
+  margin: 0 0.5em 0 0;
+  vertical-align: middle;  
+}
+
+.oneline {
+  width: 100%;
+  display: inline-block;
+}
+
+input[type="submit"] {
+  display: block;
+  border-radius: 2px;
+  width: 100%;
+  margin: 1em auto;
+  height: 2em;
+  font-size: 1.1rem;
+  background-color: #37af65;
+  border: none;
+  min-width: 300px;
+  cursor: pointer;
+}
+
+

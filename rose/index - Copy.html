@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>
+            绽放的玫瑰花
+        </title>
+        <meta charset="utf-8">
+    </head>
+    
+    <body>
+        <p style="text-align: center;">
+            <canvas id="c" height="500" width="500">
+            </canvas>
+            <!--可以修改成你要祝福的信息-->
+            <div id="blink">
+                祝
+            </div>
+            <style>
+                body{background-color:#FFCCFF}
+                #blink{ width:100%; font-size:50px; text-align:center}
+            </style>
+            <script>
+                // 动态玫瑰
+
+                var canvas = document.body.appendChild(document.createElement("canvas")),
+context = canvas.getContext("2d"),
+a, b, position;
+// Now I'm going to sample the surface at .1 intervals for a and b parameters:
+for (a = 0; a < 1; a += .1) {
+for (b = 0; b < 1; b += .1) {
+position = surface(a, b);
+context.fillRect(position.x, position.y, 1, 1);
+
+}
+
+}
+
+              function surface(a, b) {
+var x = a * 100,
+y = b * 100,
+radius = 50,
+x0 = 50,
+y0 = 50;
+if ((x - x0) * (x - x0) + (y - y0) * (y - y0) < radius * radius) {
+return {
+x: x,
+y: y * (1 + b) / 2 // deformation
+};
+} else {
+return null;
+
+}
+
+}
+
+            </script>
+            <br>
+        </p>
+    </body>
+ 
+</html>
